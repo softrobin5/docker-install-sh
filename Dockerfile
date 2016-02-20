@@ -13,14 +13,14 @@ RUN apt-get -y \
 
 # Set Date 
 RUN echo "Asia/Kolkata" > /etc/timezone && \
-                dpkg-reconfigure -f noninteractive tzdata
+	dpkg-reconfigure -f noninteractive tzdata
 
 # Required Package
 RUN apt-get install -y \
-			vim && \
-			wget && \
-			curl && \
-			net-tools
+	vim && \
+	wget && \
+	curl && \
+	net-tools
 			
 # Install ssh-server
 RUN \ 
