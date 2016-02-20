@@ -1,19 +1,27 @@
 FROM ubuntu:14.04
-
 MAINTAINER soft robin <softrobin@gmail.com>
+# disable interactive installation
+ENV DEBIAN_FRONTEND noninteractive
 
 # DNS Setting
 #RUN echo "nameserver 192.168.1.1" > /etc/resolv.conf
 
 # Update 
-RUN \
-	apt-get update && \
-	apt-get -y upgrade
+RUN apt-get -y \
+	update && \
+	upgrade
 
 # Set Date 
 RUN echo "Asia/Kolkata" > /etc/timezone && \
                 dpkg-reconfigure -f noninteractive tzdata
 
+# Required Package
+RUN apt-get install -y \
+			vim && \
+			wget && \
+			curl && \
+			net-tools
+			
 # Install ssh-server
 RUN \ 
 	apt-get install -y openssh-server && \
@@ -29,8 +37,19 @@ RUN \
 	rm /var/www/html/index.html && \
 	EXPOSE 80
 
+# Install Nginx
+#RUN \
+#	apt-get install nginx-extras -y --no-install-recommends && \
+#	RUN echo "daemon off;" >> /etc/nginx/nginx.conf && \
+#	CMD ["/usr/sbin/nginx", "-g", "daemon off;"] && \
+#	EXPOSE 80
+
 # Clean up APT when done.
-RUN apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
+RUN \
+	apt-get autoremove -y && \
+	apt-get clean && \
+	rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
+
 
 
 
