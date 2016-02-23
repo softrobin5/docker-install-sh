@@ -11,6 +11,9 @@ RUN apt-get -y \
 	update && \
 	upgrade
 
+#
+#RUN sudo apt-get install -y build-essential git
+
 # Set Date 
 RUN echo "Asia/Kolkata" > /etc/timezone && \
 	dpkg-reconfigure -f noninteractive tzdata
