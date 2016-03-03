@@ -2,7 +2,11 @@
 sudo apt-get update
 
 # Install Docker.
-sudo apt-get install docker-engine
+sudo apt-get install -y docker-engine
+
+#  Docker commands without using sudo
+username=`whoami`
+sudo usermod -a -G docker $username
 
 # reStart the docker daemon.
 sudo service docker restart
