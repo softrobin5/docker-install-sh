@@ -29,3 +29,6 @@ sudo service docker restart
 #The above commands will not remove images, containers, volumes, or user created configuration files on your host. If you wish to delete all images, containers, and volumes run the following command:
 # rm -rf /var/lib/docker
 #------------------------------------------
+
+#Reboot your host.
+sudo reboot
