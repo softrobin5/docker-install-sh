@@ -1,6 +1,9 @@
 # On Ubuntu Trusty 14.04 (LTS)
 sudo apt-get update
 
+# apparmor is required
+sudo apt-get install  apparmor
+
 # Install Docker.
 sudo apt-get install -y docker-engine
 
