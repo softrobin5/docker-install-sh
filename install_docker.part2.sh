@@ -2,7 +2,7 @@
 sudo apt-get update
 
 # apparmor is required
-sudo apt-get install  apparmor
+sudo apt-get install -y  apparmor
 
 # Install Docker.
 sudo apt-get install -y docker-engine
